@@ -11,8 +11,9 @@ const PORT = process.env.PORT || 4000;
 // Configure CORS with specific origins
 app.use(cors({
   origin: [
-    'https://soudua.github.io',  // Your GitHub Pages domain
-    'http://localhost:5173'      // Your local development frontend
+    'https://soudua.github.io',
+    'http://localhost:5173',
+    'https://soudua.github.io/Perform-testing-site'  // Your specific GitHub Pages app URL
   ],
   credentials: true
 }));

@@ -6,12 +6,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const dbPath = path.resolve(__dirname, '../timetracker.db');
+const dbPath = process.env.DATABASE_URL || path.resolve(__dirname, '../timetracker.db');
 
 export async function getDb() {
   return open({
     filename: dbPath,
-    driver: sqlite3.Database
+    driver: sqlite3.Database,
+    mode: sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE
   });
 }
 
